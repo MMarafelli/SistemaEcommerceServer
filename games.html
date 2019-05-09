@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en" ng-app="gamesModule">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <title>Hello, world!</title>
+</head>
+
+<body ng-controller="gamesControl">
+  <div ng-include src="'menu.html'"></div>
+  <div class="card">
+    <div class="card-body">
+      Escolha seu Game!
+    </div>
+  </div>
+
+  <div class="container-fluid">
+
+    <ul class="nav nav-tabs" id="clienteTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="cadastro-tab" data-toggle="tab" href="#cadastro" role="tab"
+          aria-controls="tabCadastro" aria-selected="true">Cadastro</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="dados-tab" data-toggle="tab" href="#dados" role="tab" aria-controls="tabDados"
+          aria-selected="false">Dados</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="clienteTabContent">
+      <div class="tab-pane fade show active" id="cadastro" role="tabCadastro" aria-labelledby="cadastro-tab">
+        <br>
+        <button type="button" class="btn btn-primary" ng-click="novo()">Novo</button>
+        <button type="button" class="btn btn-success" ng-click="salvar()">Salvar</button>
+        <button type="button" class="btn btn-danger" ng-click="excluir()">Excluir</button>
+        <button type="button" class="btn btn-warning" ng-click="pesquisar()">Pesquisar</button>
+        <br>
+        <br>
+
+        <form class="was-validated form-row">
+          <div class="col-md-1 mb-3">
+            <label for="txtCodigo">Código</label>
+            <input type="text" class="form-control" ng-model="game.codigo" disabled id="txtCodigo">
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label for="txtNome">Nome</label>
+            <input type="text" class="form-control is-valid" ng-model="game.nome" id="txtNome" required>
+            <div class="Invalid-feedback">Digite o nome.</div>
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label for="txtCargo">categoria</label>
+            <input type="text" class="form-control is-valid" ng-model="game.classe" id="txtClasse" required>
+            <div class="Invalid-feedback">Digite a categoria.</div>
+          </div>
+
+          <div class="col-md-5 mb-3">
+            <label for="txtCensura">Faixa etária</label>
+            <input type="text" class="form-control is-valid" ng-model="game.censura" id="txtCensura" required>
+            <div class="Invalid-feedback">Digite a faixa etária.</div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <label for="txtAnoLancamento">Data de lançamento</label>
+            <input type="text" class="form-control is-valid" ng-model="game.anoLancamento" id="txtAnoLancamento"
+              required>
+            <div class="Invalid-feedback">Digite a data de lançamento.</div>
+          </div>
+
+          <div class="col-md-2 mb-2">
+            <label for="txtPreco">Preço</label>
+            <input type="text" class="form-control is-valid" ng-model="game.preco" id="txtPreco" required>
+            <div class="Invalid-feedback">Digite preço.</div>
+          </div>
+
+
+
+
+        </form>
+      </div>
+      <div class="tab-pane fade" id="dados" role="tabDados" aria-labelledby="dados-tab">
+
+
+        <input type="text" class="form-control" ng-model="criterio" placeholder="O que você está procurando?"><br>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>codigo</th>
+              <th>nome</th>
+              <th>categoria</th>
+              <th>censura</th>
+              <th>anoLancamento</th>
+              <th>preco</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="gamesTabela in games | filter:criterio" ng-click="Seleciona(gamesTabela)">
+              <td>{{gamesTabela.codigo}}</td>
+              <td>{{gamesTabela.nome}}</td>
+              <td>{{gamesTabela.categoria}}</td>
+              <td>{{gamesTabela.censura}}</td>
+              <td>{{gamesTabela.anoLancamento}}</td>
+              <td>{{gamesTabela.preco}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <span ng-show="(games | filter: criterio).length == 0">Infelizmente não temos o game que você está
+          procurando</span>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <script src="js/angular.min.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="control/gamesControl.js"></script>
+
+
+
+
+</body>
+
+</html>
