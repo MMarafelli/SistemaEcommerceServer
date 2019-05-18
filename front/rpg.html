@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" ng-app="personagemModule">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body ng-controller="personagemControl">
+     <div ng-include="'menu.html'"></div>
+     <div class="card">
+  <div class="card-body">
+    Crie seu personagem de RPG
+  </div>
+</div>
+
+<div class="container-fluid">
+  
+  <ul class="nav nav-tabs" id="clienteTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="cadastro-tab" data-toggle="tab" href="#cadastro" role="tab" aria-controls="tabCadastro" aria-selected="true">Cadastro</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="dados-tab" data-toggle="tab" href="#dados" role="tab" aria-controls="tabDados" aria-selected="false">Dados</a>
+  </li>
+</ul>
+<div class="tab-content" id="clienteTabContent">
+  <div class="tab-pane fade show active" id="cadastro" role="tabCadastro" aria-labelledby="cadastro-tab">
+    <br>
+    <button type="button" class="btn btn-primary" ng-click="novo()">Novo</button>
+    <button type="button" class="btn btn-success" ng-click="salvar()">Salvar</button>
+    <button type="button" class="btn btn-danger" ng-click="excluir()">Excluir</button>
+    <button type="button" class="btn btn-warning" ng-click="pesquisar()">Pesquisar</button>
+    <br>
+    <br>
+
+    <form class="was-validated form-row">
+  <div class="col-md-1 mb-3">
+    <label for="txtCodigo">Código</label>
+    <input type="text" class="form-control" ng-model="rpg.codigo" desabled id="txtCodigo">
+  </div>
+
+  <div class="col-md-4 mb-3">
+    <label for="txtNome">Nome</label>
+    <input type="text" class="form-control is-valid" ng-model="rpg.nome" id="txtNome" required>
+    <div class="Invalid-feedback">Digite o nome.</div>
+  </div>
+
+  <div class="col-md-4 mb-3">
+    <label for="txtCargo">classe</label>
+    <input type="text" class="form-control is-valid" ng-model="rpg.classe" id="txtCargo" required>
+    <div class="Invalid-feedback">Digite a classe.</div>
+  </div>
+
+<div class="col-md-5 mb-3">
+    <label for="txtEndereco">história de origem</label>
+    <input type="text" class="form-control is-valid" ng-model="historia.origem" id="txtEndereco" required>
+    <div class="Invalid-feedback">Digite a origem.</div>
+  </div>
+
+  <div class="col-md-3 mb-3">
+    <label for="txtCidade">pontos de força</label>
+    <input type="text" class="form-control is-valid" ng-model="cliente.forca" id="txtCidade" required>
+    <div class="Invalid-feedback">Digite o ponto de força.</div>
+  </div>
+
+  <div class="col-md-2 mb-2">
+    <label for="txtCep">pontos de inteligencia</label>
+    <input type="text" class="form-control is-valid" ng-model="cliente.inteligencia" id="txtCep" required>
+    <div class="Invalid-feedback">Digite o ponto de inteligencia.</div>
+  </div>
+
+  <div class="col-md-3 mb-3">
+    <label for="txtPais">pontos de carisma</label>
+    <input type="text" class="form-control is-valid" ng-model="cliente.carisma" id="txtPais" required>
+    <div class="Invalid-feedback">Digite o ponto de carisma.</div>
+  </div>
+
+   
+    
+ 
+</form>
+  </div>
+  <div class="tab-pane fade" id="dados" role="tabDados" aria-labelledby="dados-tab">
+
+
+  <input type="text" class="form-control"  ng-model="criterio" placeholder="O que você está procurando?"><br>
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th >código</th>
+      <th >nome</th>
+      <th >classe</th>
+      <th >origem</th>
+      <th >forca</th>
+      <th >inteligencia/th>
+      <th >carisma</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="clienteTabela in personagens | filter:criterio" ng-click="Seleciona(clienteTabela)">
+    <td>{{clienteTabela.codigo}}</td>
+    <td>{{clienteTabela.nome}}</td>
+    <td>{{clienteTabela.classe}}</td>
+    <td>{{clienteTabela.origem}}</td>
+    <td>{{clienteTabela.forca}}</td>
+    <td>{{clienteTabela.inteligencia}}</td>
+    <td>{{clienteTabela.carisma}}</td>
+    </tr>
+      </tbody>
+  </table>
+   <span ng-show="(personagens | filter: criterio).length == 0">Infelizmente não temos o que você está procurando</span> 
+  </div>
+
+ 
+</div>
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+    <script src="js/angular.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js" ></script>
+    <script src="js/popper.min.js" ></script>
+    <script src="js/bootstrap.min.js"></script> 
+    <script src="control/PersonagemControl.js"></script>
+
+    
+   
+  
+  </body>
+</html>
+
+
+
+78
