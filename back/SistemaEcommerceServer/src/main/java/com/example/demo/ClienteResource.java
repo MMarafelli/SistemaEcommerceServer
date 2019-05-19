@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
-@RequestMapping(value="/clientes")
-@CrossOrigin(origins = "http://localhost:81")
+@RequestMapping(value="/cliente")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ClienteResource {
 	
 	@Autowired
@@ -29,8 +29,8 @@ public class ClienteResource {
 	
 	@GetMapping
 	public ResponseEntity<List<Cliente>> findAll() {
-		List<Cliente> alunos = service.findAll();
-		return ResponseEntity.ok().body(alunos);
+		List<Cliente> cliente = service.findAll();
+		return ResponseEntity.ok().body(cliente);
 	}
 		
 	@PostMapping

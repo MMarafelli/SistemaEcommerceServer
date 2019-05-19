@@ -3,8 +3,7 @@ package com.example.demo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
-public interface AtorRepository extends JpaRepository<Ator,Integer>{
+public interface LanHouseRepository extends JpaRepository<LanHouse,Integer> {
 
 }

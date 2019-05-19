@@ -20,30 +20,30 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
-@RequestMapping(value="/rpg")
-@CrossOrigin(origins = "http://localhost:81")
-public class PersonagemResource {
+@RequestMapping(value="/lanhouse")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+public class LanHouseResource {
 	
 	@Autowired
-	private PersonagemRepository service;
+	private LanHouseRepository service;
 	
 	@GetMapping
-	public ResponseEntity<List<Personagem>> findAll() {
-		List<Personagem> Personagens = service.findAll();
-		return ResponseEntity.ok().body(Personagens);
+	public ResponseEntity<List<LanHouse>> findAll() {
+		List<LanHouse> lanHouse = service.findAll();
+		return ResponseEntity.ok().body(lanHouse);
 	}
 		
 	@PostMapping
-	public ResponseEntity<?> salvar(@Valid @RequestBody Personagem personagem) {
-		service.save(personagem);
+	public ResponseEntity<?> salvar(@Valid @RequestBody LanHouse lanHouse) {
+		service.save(lanHouse);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-		        .buildAndExpand(personagem.getCodigo()).toUri();
+		        .buildAndExpand(lanHouse.getCodigo()).toUri();
 		return ResponseEntity.created(location).build();
 	}
 	
 	@PutMapping
-	public ResponseEntity<?> atualizar(@Valid @RequestBody Personagem personagem) {
-		service.save(personagem);
+	public ResponseEntity<?> atualizar(@Valid @RequestBody LanHouse lanHouse) {
+		service.save(lanHouse);
 	    return ResponseEntity.noContent().build();
 	}
 	

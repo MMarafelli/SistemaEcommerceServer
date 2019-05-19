@@ -8,8 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Personagem implements Serializable{
+public class LanHouse implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codigo;
@@ -20,11 +24,11 @@ public class Personagem implements Serializable{
 	private String inteligencia;
 	private String carisma;
 	
-	public Personagem() {
+	public LanHouse() {
 		super();
 	}
 
-	public Personagem(Integer codigo, String nome, String classe, String origem, String forca, String inteligencia,
+	public LanHouse(Integer codigo, String nome, String classe, String origem, String forca, String inteligencia,
 			String carisma) {
 		super();
 		this.codigo = codigo;

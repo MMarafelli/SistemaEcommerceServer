@@ -21,7 +21,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping(value="/filmes")
-@CrossOrigin(origins = "http://localhost:81")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class FilmeResource {
 	
 	@Autowired

@@ -20,30 +20,30 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
-@RequestMapping(value="/Atores")
-@CrossOrigin(origins = "http://localhost:81")
-public class AtorResource {
+@RequestMapping(value="/games")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+public class GamesResource {
 	
 	@Autowired
-	private AtorRepository service;
+	private GamesRepository service;
 	
 	@GetMapping
-	public ResponseEntity<List<Ator>> findAll() {
-		List<Ator> atores = service.findAll();
-		return ResponseEntity.ok().body(atores);
+	public ResponseEntity<List<Games>> findAll() {
+		List<Games> game = service.findAll();
+		return ResponseEntity.ok().body(game);
 	}
 		
 	@PostMapping
-	public ResponseEntity<?> salvar(@Valid @RequestBody Ator ator) {
-		service.save(ator);
+	public ResponseEntity<?> salvar(@Valid @RequestBody Games game) {
+		service.save(game);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-		        .buildAndExpand(ator.getCodigo()).toUri();
+		        .buildAndExpand(game.getCodigo()).toUri();
 		return ResponseEntity.created(location).build();
 	}
 	
 	@PutMapping
-	public ResponseEntity<?> atualizar(@Valid @RequestBody Ator ator) {
-		service.save(ator);
+	public ResponseEntity<?> atualizar(@Valid @RequestBody Games game) {
+		service.save(game);
 	    return ResponseEntity.noContent().build();
 	}
 	

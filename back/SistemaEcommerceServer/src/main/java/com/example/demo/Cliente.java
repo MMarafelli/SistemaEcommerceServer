@@ -9,117 +9,111 @@ import javax.persistence.Id;
 
 @Entity
 public class Cliente implements Serializable {
-	
+
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer codigo;
-	private String nome;
-	private String cargo;
-	private String endereco;
-	private String cidade;
-	private String cep;
-	private String pais;
-	private String telefone;
-	private String fax;
-	
-	
-	
-	public Cliente() {
-		super();
-	}
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer codigo;
+    private String nome;
+    private String cargo;
+    private String endereco;
+    private String cidade;
+    private String cep;
+    private String pais;
+    private String telefone;
+    private String fax;
 
-	public Cliente(Integer codigo, String nome, String cargo, String endereco, String cidade, String cep, String pais,
-			String telefone, String fax) {
-		super();
-		this.codigo = codigo;
-		this.nome = nome;
-		this.cargo = cargo;
-		this.endereco = endereco;
-		this.cidade = cidade;
-		this.cep = cep;
-		this.pais = pais;
-		this.telefone = telefone;
-		this.fax = fax;
-	}
-	
-	//getset
+    public Cliente() {
+        super();
+    }
 
-	public Integer getCodigo() {
-		return codigo;
-	}
+    public Cliente(Integer codigo, String nome, String cargo, String endereco, String cidade, String cep, String pais,
+            String telefone, String fax) {
+        super();
+        this.codigo = codigo;
+        this.nome = nome;
+        this.cargo = cargo;
+        this.endereco = endereco;
+        this.cidade = cidade;
+        this.cep = cep;
+        this.pais = pais;
+        this.telefone = telefone;
+        this.fax = fax;
+    }
 
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
-	}
+    public Integer getCodigo() {
+        return codigo;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public String getCargo() {
-		return cargo;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setCargo(String cargo) {
-		this.cargo = cargo;
-	}
+    public String getCargo() {
+        return cargo;
+    }
 
-	public String getEndereco() {
-		return endereco;
-	}
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
+    public String getEndereco() {
+        return endereco;
+    }
 
-	public String getCidade() {
-		return cidade;
-	}
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
+    public String getCidade() {
+        return cidade;
+    }
 
-	public String getCep() {
-		return cep;
-	}
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
 
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
+    public String getCep() {
+        return cep;
+    }
 
-	public String getPais() {
-		return pais;
-	}
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
 
-	public void setPais(String pais) {
-		this.pais = pais;
-	}
+    public String getPais() {
+        return pais;
+    }
 
-	public String getTelefone() {
-		return telefone;
-	}
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
+    public String getTelefone() {
+        return telefone;
+    }
 
-	public String getFax() {
-		return fax;
-	}
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 
-	public void setFax(String fax) {
-		this.fax = fax;
-	}
-	
-	
-	
-	
-	
-	
+    public String getFax() {
+        return fax;
+    }
+
+    public void setFax(String fax) {
+        this.fax = fax;
+    }
 
 }
