@@ -1,7 +1,7 @@
 var app = angular.module('clienteModule',[]);
 app.controller('clienteControl',function($scope,$http){
 
-var url = 'http://localhost:8080/clientes';
+var url = 'http://localhost:8080/cliente';
 
 $scope.pesquisar = function(){
 	$http.get(url).then(function(response){
@@ -19,7 +19,7 @@ $scope.pesquisar = function(){
 
 $scope.pesquisar();
 
-/*$scope.clientes =[
+$scope.clientes =[
 
 {
 'codigo':'1',
@@ -42,7 +42,7 @@ $scope.pesquisar();
  	'telefone':'3333333333',
  	'fax':'3233232323'
  }
-] */
+]
 
 
 
